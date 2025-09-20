@@ -116,8 +116,8 @@ Servir como punto de entrada principal para los usuarios, centralizando el acces
 
 Funcionalidades:
 
-• Presentación visual con logotipo de la empresa.
-• Botones que permiten navegar por cada pantalla de la aplicación.
+• Presentación visual con logotipo de la empresa.  
+• Botones que permiten navegar por cada pantalla de la aplicación.  
 
 ![Pantalla Inicio](/Imagenes/2 Capa de Aplicación/Pantalla Inicio.jpg)
 
@@ -127,14 +127,14 @@ Registrar la información de los contratos y calcula la penalidad en caso haya r
 
 Funcionalidades:
 
-• Generación de contrato id automático.
-• Lista desplegables de selección de empleado, cliente y distrito
-• Cuadro de búsqueda por proyecto y estado.
-• Botón que lleva a pantalla de creación de nuevo cliente
-• Botones de guardar, editar, eliminar y crear nuevo registro.
-• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.
-• Botón que lleva a pantalla de subcontratos
-• Calcula los días de penalidad, monto de penalidad y el monto final.
+• Generación de contrato id automático.  
+• Lista desplegables de selección de empleado, cliente y distrito.  
+• Cuadro de búsqueda por proyecto y estado.  
+• Botón que lleva a pantalla de creación de nuevo cliente.  
+• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
+• Botón que lleva a pantalla de subcontratos.  
+• Calcula los días de penalidad, monto de penalidad y el monto final.  
 
 ![contratos](/Imagenes/2 Capa de Aplicación/contratos.jpg)
 
@@ -144,11 +144,11 @@ Registrar la información de los subcontratos.
 
 Funcionalidades:
 
-• Generación de subcontrato id automático.
-• Lista desplegables de selección de proyecto y contratista
-• Cuadro de búsqueda por proyecto y contratista.
-• Botones de guardar, editar, eliminar y crear nuevo registro.
-• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.
+• Generación de subcontrato id automático.  
+• Lista desplegables de selección de proyecto y contratista.  
+• Cuadro de búsqueda por proyecto y contratista.  
+• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
 
 ![subcontratos](/Imagenes/2 Capa de Aplicación/subcontratos.jpg)
 
@@ -158,10 +158,10 @@ Registrar los pagos a los contratistas.
 
 Funcionalidades:
 
-• Generación de pago id automático.
-• Lista desplegables de selección de subcontratos
-• Botones de guardar, editar, eliminar y crear nuevo registro.
-• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.
+• Generación de pago id automático.  
+• Lista desplegables de selección de subcontratos.  
+• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
 
 ![Pantalla Pago contratistas](/Imagenes/2 Capa de Aplicación/Pago contratistas.jpg)
 
