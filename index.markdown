@@ -285,21 +285,21 @@ Se implementó un modelo de datos centralizado en Fabric Data Factory para garan
 
 El flujo de trabajo ETL (Extract, Transform, Load) se estructuró en pipelines que permiten la importación, transformación y almacenamiento de datos.
 
-•	Fuente de datos:
+**Fuente de datos:**
 SQL Server inicial con tablas maestras y transaccionales:
 
-    •	Contratos
-    •	Subcontratos
-    •	Contratistas
-    •	Segmento
-    •	Cliente
-    •	Tipo Cliente
-    •	Empleados
-    •	Penalidades
-    •	Pagos Contratistas
-    •	Calendario
+•	Contratos  
+•	Subcontratos  
+•	Contratistas  
+•	Segmento  
+•	Cliente  
+•	Tipo Cliente  
+•	Empleados  
+•	Penalidades  
+•	Pagos Contratistas  
+•	Calendario  
 
-•	Pipeline principal (modelo de datos):
+**Pipeline principal (modelo de datos):**
 
 Extrae la información desde SQL Server y aplica reglas de transformación (normalización de nombres, validación de llaves, formatos de fechas, cálculo de montos).
 Carga los datos en el **Data Warehouse de Fabric**, donde quedan disponibles para explotación en Power BI y análisis avanzados.
@@ -339,59 +339,58 @@ Esta tabla se almacena en el **Lakehouse**, sirviendo como dataset de referencia
 
 
 ## **Capa de Almacén y datos**
+En Innova Espacios, la capa de Data Warehouse constituye la base central de nuestro ecosistema analítico. Aquí convergen los datos previamente transformados en la capa ETL —gestionada con Pipelines y Dataflows en Microsoft Fabric— para ser integrados en un Fabric Data Warehouse. Este repositorio organiza y normaliza la información, permitiendo un modelado optimizado que impulsa consultas ágiles, análisis confiables y reportes de alto valor estratégico en Power BI.
 
-Data Warehouse con Fabric Warehouse y automatización e integración con Power Automate.
+**Modelo de datos en Data Warehouse**
 
+![modelo de datos warehouse](/Imagenes/4 Capa de Almacén y datos/modelo de datos warehouse.jpg) 
 
+**Automatizaciones con Power Automate**
+Como complemento de esta capa, en Power Automate se diseñaron dos flujos para poder gestionar notificaciones de manera eficiente y automatizada.
 
+**1. 🔔​ Notificación de actualización exitosa automática de Datasets en Fabric (Ms Teams y Envío por correo)**
 
+Esta automatización envía una notificación por Microsoft Teams y correo electrónico cada vez que el dataset del reporte de Power BI se actualiza exitosamente. 
 
+**Flujo Power Automate**
 
+![Flujo power automate 1](/Imagenes/4 Capa de Almacén y datos/Flujo Automate1.jpg) 
 
+**Notificacion por Microsoft Teams**
+![notificacion Teams 1](/Imagenes/4 Capa de Almacén y datos/notificacion Teams 1.jpg) 
 
+**Notificación por Correo**
+![notificacion correo](/Imagenes/4 Capa de Almacén y datos/notificacion correo.jpg) 
 
+**2. 📊​ Reporte diario Power BI (Envío por correo)** 
 
+Esta automatización genera y envía diariamente, por correo electrónico, un reporte en formato PDF de Power BI al personal previamente designado.
 
+**Flujo Power Automate**
 
+![Flujo power automate 1](/Imagenes/4 Capa de Almacén y datos/Flujo Automate2.jpg) 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Notificación por Correo**
+![notificacion correo](/Imagenes/4 Capa de Almacén y datos/notificacion correo 2.jpg) 
 
 
 ## **Capa de Presentación**
 
-Reportes con Microsoft Power Bi 
+La capa de presentación, construida sobre Power BI, es el punto de acceso para los usuarios del negocio a toda la información procesada en el ecosistema de datos de Innova Espacios. Su objetivo es simplificar la complejidad de los datos y ofrecer una experiencia visual que apoye tanto el análisis operativo como las decisiones estratégicas.
 
+**Elementos Clave:**
 
+•	Visualización Estratégica: Evolución de ventas, proyectos y desempeño.  
+•	Exploración Flexible: Filtros por tiempo, cliente o proveedor.  
+•	Indicadores Clave: Servicios, ingresos y cálculo de margen.  
+•	Automatización: Datos siempre actualizados con Microsoft Fabric y Power Automate.  
 
+**Impacto en Remodelación de Interiores:**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+•	Decisiones Ágiles: Métricas críticas para ingenieros, proveedores y clientes.  
+•	Oportunidades de Mercado: Identificación de tendencias y necesidades del sector.  
+•	Gestión Ejecutiva: Reportes claros para gerentes y responsables de proyectos.  
+•	Eficiencia: Menos tiempo en reportes manuales, más foco en la obra y en el cliente.  
 
 
 
@@ -400,4 +399,5 @@ Reportes con Microsoft Power Bi
 ## **Conclusiones:**
 
 •	La arquitectura implementada garantiza un modelo de datos único y escalable que centraliza la información de contratos, subcontratos, pagos y contratistas, facilitando la trazabilidad completa de los proyectos y potenciando el análisis en Power BI para la toma de decisiones estratégicas.  
+•	La implementación de la aplicación desarrollada en Power Apps ha permitido facilitar el registro oportuno, la trazabilidad de las operaciones y la reducción de errores asociados a procesos manuales. Asimismo, la app brinda mayor agilidad en la administración de contratos y subcontratos, garantizando un control más eficiente sobre los compromisos adquiridos y el cumplimiento de los plazos de pago.   
 •	La integración de pipelines ETL y notebooks en Python permite a Innova Spacios automatizar la generación y distribución de reportes clave (como el de nuevos contratos o top 20 contratistas con mayor cantidad de días de retraso), reduciendo la dependencia de procesos manuales y asegurando información confiable y disponible diariamente.
