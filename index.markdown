@@ -57,43 +57,47 @@ Accede a los dashboards y reportes en Power BI. Gracias a la arquitectura, recib
 
 La base de datos del proceso operativo de Innova Espacios ha sido diseñada para gestionar de forma eficiente las generación de contratos, subcontratos y realización de pagos a los contratistas.
 
-Esta base de datos está normalizada y distribuida en 9 tablas:
+Esta base de datos está normalizada y distribuida en 9 tablas:  
 
-•	Empleados
+**🔹Tablas Principales**
 
-Se registra la información personal de los empleados de la empresa: nombre, DNI, Teléfono, email, cargo, fecha de ingreso, dirección, distrito y estado. 
-
-•	Contratistas
-
-Contiene la información de los contratistas: nombre o razón social, RUC, tipo de contratista, Teléfono, email, dirección, distrito y estado. Esta tabla esta relacionada a la tabla subcontratos.
-
-•	Segmento
-
-Lista los tipos de segmentos al que pertenecen los tipos de clientes, esta relacionada a la tabla del mismo nombre.
-
-•	Tipo Cliente
-
-Lista los tipos de clientes, esta relacionada a la tabla de clientes.
-
-•	Cliente
-
-Contiene la información de los clientes de la empresa: nombre o razón social, RUC, Teléfono, email, fecha de registro y estado. 
-
-•	Contratos
+📑 **Contratos**
 
 Almacena la información de los contratos de la empresa: cliente, empleado, nombre del proyecto, dirección, distrito, fecha de inicio, fecha de fin estimado, fecha de entrega real, monto acordado y estado.
 
-•	Subcontratos
+📄​ **Subcontratos**
 
 Almacena la información de los contratos de la empresa: contratos, contratistas, monto acordado, fecha de inicio, fecha de fin estimado y fecha de entrega real.
 
-•	Penalidades
+💳​ **Pagos Contratistas**
 
+Se registran los pagos efectuados a los contratistas: subcontrato, fecha de pago y comprobante de pago.  
+
+  
+**🔹Tablas de Soporte**
+
+👷 **Empleados**
+
+Se registra la información personal de los empleados de la empresa: nombre, DNI, Teléfono, email, cargo, fecha de ingreso, dirección, distrito y estado. 
+
+👷‍♂️**Contratistas**
+
+Contiene la información de los contratistas: nombre o razón social, RUC, tipo de contratista, Teléfono, email, dirección, distrito y estado. Esta tabla esta relacionada a la tabla subcontratos.
+
+ 🏷️​ **Segmento**
+
+Lista los tipos de segmentos al que pertenecen los tipos de clientes, esta relacionada a la tabla del mismo nombre.
+
+ 🔖​ **Tipo Cliente**
+
+Lista los tipos de clientes, esta relacionada a la tabla de clientes.
+
+🧍‍♂️ **Cliente**
+
+Contiene la información de los clientes de la empresa: nombre o razón social, RUC, Teléfono, email, fecha de registro y estado. 
+
+📉​​ **Penalidades**
 Se resgistran las penalidades generadas por retrasos en la entrega de los proyectos: contrato, días de retraso y monto penalidad.
-
-•	Pagos Contratistas
-
-Se registran los pagos efectuados a los contratistas: subcontrato, fecha de pago y comprobante de pago.
 
 ![Modelo de datos](/Imagenes/1 Capa de datos/Modelo de datos .jpg) 
 
@@ -108,86 +112,174 @@ El modelo de gestión se basa en la relación entre contratos con clientes final
 
 ![Arquitectura de datos](/Imagenes/2 Capa de Aplicación/Diagrama de flujo.jpg)
 
+
+**•	Inicio del proceso: selección de la acción a realizar (contrato, subcontrato, pago o modificación de tablas).**
+
+**•	Contratos:**  
+-	Registro de contratos con datos clave (proyecto, monto, dirección).
+-	Validación de cliente nuevo → registro en tabla maestra.
+-	Posibilidad de asociar subcontratos a cada contrato.
+
+**•	Subcontratos:**
+-	Registro de subcontratos con información del contratista, monto y plazos.
+-	Validación de contratista nuevo → registro en tabla maestra.
+
+**•	Pagos:**
+-	Módulo independiente para registrar pagos asociados a contratos o subcontratos.
+
+**•	Modificación de tablas:**
+-	Transaccionales: actualizaciones en contratos, subcontratos y pagos.
+-	Maestras: actualización de clientes, segmentos y empleados.
+
+**•	Fin del proceso:**  
+-   Se cierra cuando no es necesario registrar más información.
+
+
 **2. Aplicación en Power Apps**
 
-**• Pantalla de Inicio**
+**🔹Pantalla de Inicio**
+
+**Propósito**
 
 Servir como punto de entrada principal para los usuarios, centralizando el acceso a todas las funcionalidades del sistema mediante una interfaz clara, visual y fácil de usar.
 
-Funcionalidades:
+**Funcionalidades:**
 
 • Presentación visual con logotipo de la empresa.  
 • Botones que permiten navegar por cada pantalla de la aplicación.  
 
 ![Pantalla Inicio](/Imagenes/2 Capa de Aplicación/Pantalla Inicio.jpg)
 
-**• Pantalla de Contratos**
+**🔹Pantalla de Contratos**
+
+**Propósito**
 
 Registrar la información de los contratos y calcula la penalidad en caso haya retraso en la entrega de proyecto.
 
-Funcionalidades:
+**Funcionalidades:**
 
 • Generación de contrato id automático.  
 • Lista desplegables de selección de empleado, cliente y distrito.  
 • Cuadro de búsqueda por proyecto y estado.  
 • Botón que lleva a pantalla de creación de nuevo cliente.  
-• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Botones de editar, eliminar y crear nuevo registro.  
 • Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
 • Botón que lleva a pantalla de subcontratos.  
 • Calcula los días de penalidad, monto de penalidad y el monto final.  
 
 ![contratos](/Imagenes/2 Capa de Aplicación/contratos.jpg)
 
-**• Pantalla de Subcontratos**
+**🔹Pantalla de Subcontratos**
+
+**Propósito**
 
 Registrar la información de los subcontratos.
 
-Funcionalidades:
+**Funcionalidades:**
 
 • Generación de subcontrato id automático.  
 • Lista desplegables de selección de proyecto y contratista.  
 • Cuadro de búsqueda por proyecto y contratista.  
-• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Botones de editar, eliminar y crear nuevo registro.  
 • Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
 
-![subcontratos](/Imagenes/2 Capa de Aplicación/subcontratos.jpg)
+![Pantalla subcontratos](/Imagenes/2 Capa de Aplicación/subcontratos.jpg)
 
-**• Pantalla de Pago contratistas**
+**🔹Pantalla de Pago contratistas**
+
+**Propósito**
 
 Registrar los pagos a los contratistas.
 
-Funcionalidades:
+**Funcionalidades:**
 
 • Generación de pago id automático.  
-• Lista desplegables de selección de subcontratos.  
-• Botones de guardar, editar, eliminar y crear nuevo registro.  
+• Lista desplegables de selección de subcontratos. 
+• Cuadro de búsqueda por proyecto y contratista.  
+• Botones de editar, eliminar y crear nuevo registro.  
 • Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal.  
 
 ![Pantalla Pago contratistas](/Imagenes/2 Capa de Aplicación/Pago contratistas.jpg)
 
-**• Pantalla de Empleados**
+**🔹Pantalla de Empleados**
+
+**Propósito**
+
+Gestionar los empleados de la empresa.
+
+**Funcionalidades:**
+
+• Generación de empleado id automático.  
+• Lista desplegables de cargo y distrito. 
+• Cuadro de búsqueda por nombre, cargo y estado.  
+• Botones de editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal. 
 
 ![Pantalla de empleados](/Imagenes/2 Capa de Aplicación/empleados.jpg)
 
-**• Pantalla de Segmento**
+**🔹Pantalla de Segmento**
+
+**Propósito**
+
+Actualizar la tabla maestra segmentos.
+
+**Funcionalidades:**
+
+• Generación de segmento id automático.   
+• Botones de editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal. 
 
 ![Pantalla segmento](/Imagenes/2 Capa de Aplicación/segmento.jpg)
 
-**• Pantalla de Tipo cliente**
+**🔹Pantalla de Tipo cliente**
+
+**Propósito**
+
+Actualizar la tabla maestra tipo de clientes.
+
+**Funcionalidades:**
+
+• Generación de tipo cliente id automático.   
+• Botones de editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal. 
 
 ![Pantalla Tipo cliente](/Imagenes/2 Capa de Aplicación/Tipo cliente.jpg)
 
-**• Pantalla de Clientes**
+**🔹Pantalla de Clientes**
+
+**Propósito**
+
+Gestionar los clientes de la empresa.
+
+**Funcionalidades:**
+
+• Generación de cliente id automático.  
+• Lista desplegable de tipo cliente. 
+• Cuadro de búsqueda por razón social, RUC y estado.  
+• Botones de editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal. 
 
 ![Pantalla cliente](/Imagenes/2 Capa de Aplicación/cliente.jpg)
 
-**• Pantalla de Contratistas**
+**🔹Pantalla de Contratistas**
+
+**Propósito**
+
+Gestionar los contratistas de la empresa.
+
+**Funcionalidades:**
+
+• Generación de contratista id automático.  
+• Listas desplegables de tipo de contratista y distrito. 
+• Cuadro de búsqueda por razón social, RUC y estado.  
+• Botones de editar, eliminar y crear nuevo registro.  
+• Botón de Inicio (Home) que permite al usuario regresar fácilmente a la pantalla principal. 
 
 ![Pantalla contratistas](/Imagenes/2 Capa de Aplicación/contratistas.jpg)
 
 ## **Capa de Extracción transformación y carga**
 
-Se implementó un modelo de datos centralizado en Fabric Data Factory para garantizar la integración, transformación y disponibilidad de información clave relacionada con la gestión de contratos y subcontratos de la empresa Innova Spacios.
+Se implementó un modelo de datos centralizado en Fabric Data Factory para garantizar la integración, transformación y disponibilidad de información clave relacionada con la gestión de contratos y subcontratos de la empresa Innova Espacios.
 
 **1. Proceso ETL en Fabric Data Factory**
 
@@ -210,7 +302,7 @@ SQL Server inicial con tablas maestras y transaccionales:
 •	Pipeline principal (modelo de datos):
 
 Extrae la información desde SQL Server y aplica reglas de transformación (normalización de nombres, validación de llaves, formatos de fechas, cálculo de montos).
-Carga los datos en el Data Warehouse de Fabric, donde quedan disponibles para explotación en Power BI y análisis avanzados.
+Carga los datos en el **Data Warehouse de Fabric**, donde quedan disponibles para explotación en Power BI y análisis avanzados.
 
 ![Pipeline](/Imagenes/3 Capa de Extracción transformación y carga/Pipeline.jpg) 
 
@@ -234,12 +326,17 @@ El proceso está programado para ejecutarse diariamente, asegurando que el equip
 
 ![ython Notebook](/Imagenes/3 Capa de Extracción transformación y carga/Python Notebook.jpg) 
 
-•	Pipeline adicional (reporte de contratistas):
+•	Pipeline adicional (reporte de nuevos contratos):
 
-Se diseñó un flujo específico para generar una tabla de reporte de nuevos contratos registrados en los últimos 30 días.
-Esta tabla se almacena en el Lakehouse, sirviendo como dataset de referencia para reportes periódicos.
+Se diseñó un flujo específico para generar una tabla de reporte de **nuevos contratos registrados en los últimos 30 días.**
+Esta tabla se almacena en el **Lakehouse**, sirviendo como dataset de referencia para reportes periódicos.
 
 ![Pipeline automatización python](/Imagenes/3 Capa de Extracción transformación y carga/Pipeline automatización python.jpg) 
+
+**Correo electrónico con el reporte programado diariamente**
+
+![reporte correo](/Imagenes/3 Capa de Extracción transformación y carga/Reporte correo.jpg) 
+
 
 ## **Capa de Almacén y datos**
 
@@ -302,6 +399,5 @@ Reportes con Microsoft Power Bi
 
 ## **Conclusiones:**
 
-•	Automatización y eficiencia: La integración de pipelines ETL y notebooks en Python permite a Innova Spacios automatizar la generación y distribución de reportes clave (como el de nuevos contratistas), reduciendo la dependencia de procesos manuales y asegurando información confiable y disponible diariamente.
-
-•	Escalabilidad y control centralizado: La arquitectura implementada garantiza un modelo de datos único y escalable que centraliza la información de contratos, subcontratos, pagos y contratistas, facilitando la trazabilidad completa de los proyectos y potenciando el análisis en Power BI para la toma de decisiones estratégicas.
+•	La arquitectura implementada garantiza un modelo de datos único y escalable que centraliza la información de contratos, subcontratos, pagos y contratistas, facilitando la trazabilidad completa de los proyectos y potenciando el análisis en Power BI para la toma de decisiones estratégicas.  
+•	La integración de pipelines ETL y notebooks en Python permite a Innova Spacios automatizar la generación y distribución de reportes clave (como el de nuevos contratos o top 20 contratistas con mayor cantidad de días de retraso), reduciendo la dependencia de procesos manuales y asegurando información confiable y disponible diariamente.
