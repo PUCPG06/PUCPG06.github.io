@@ -393,7 +393,41 @@ La capa de presentación, construida sobre Power BI, es el punto de acceso para 
 •	Eficiencia: Menos tiempo en reportes manuales, más foco en la obra y en el cliente.  
 
 
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI1.jpg) 
 
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI2.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI3.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI4.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI5.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI6.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI7.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI8.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI9.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI10.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI11.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI12.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI13.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI14.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI15.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI16.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI17.jpg) 
+
+![notificacion correo](/Imagenes/5 Capa de Presentación/BI18.jpg) 
 
 
 ## **Conclusiones:**
